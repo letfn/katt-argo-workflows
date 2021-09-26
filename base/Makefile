@@ -6,7 +6,7 @@ argowf.yaml: clean/argowf.yaml
 clean/argowf.yaml: values.yaml
 	-helm repo add argo https://argoproj.github.io/argo-helm
 	helm repo update
-	helm template argowf argo/argo-workflows --version 0.6.0 --namespace=argo --values=values.yaml --kube-version 1.21 >$@
+	helm template argowf argo/argo-workflows --version 0.6.0 --namespace=argocd --values=values.yaml --kube-version 1.21 >$@
 
 .PHONY: clean
 clean:

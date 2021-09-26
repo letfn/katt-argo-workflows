@@ -12,7 +12,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   name: argowf-argo-workflows-workflow
-  namespace: argo
+  namespace: argocd
 rules:
 - apiGroups:
   - ""
@@ -361,7 +361,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: argowf-argo-workflows-workflow
-  namespace: argo
+  namespace: argocd
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
@@ -369,7 +369,7 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: argo-workflow
-  namespace: argo
+  namespace: argocd
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
@@ -403,7 +403,7 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: argowf-argo-workflows-server
-  namespace: argo
+  namespace: argocd
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
@@ -423,7 +423,7 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: argowf-argo-workflows-server
-  namespace: argo
+  namespace: argocd
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
@@ -443,7 +443,7 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: argowf-argo-workflows-workflow-controller
-  namespace: argo
+  namespace: argocd
 - kind: ServiceAccount
   name: argowf-argo-workflows-workflow-controller
   namespace: default
@@ -466,7 +466,7 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: argowf-argo-workflows-workflow-controller
-  namespace: argo
+  namespace: argocd
 ---
 apiVersion: v1
 data:
