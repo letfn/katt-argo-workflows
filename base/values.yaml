@@ -1,0 +1,13 @@
+server:
+  extraArgs:
+    - --auth-mode=sso
+  sso:
+    issuer: https://argocd.defn.ooo/api/dex
+    sessionExpiry: 240h
+    clientId:
+      name: argo-workflows-sso
+      key: client-id
+    clientSecret:
+      name: argo-workflows-sso
+      key: client-secret
+    redirectUrl: https://argo.defn.ooo/oauth2/callback
