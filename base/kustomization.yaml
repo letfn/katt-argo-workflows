@@ -3,3 +3,9 @@ kind: Kustomization
 
 resources:
   - argowf.yaml
+
+patches:
+- path: patch-deployment-image.yaml
+  target:
+    kind: Deployment
+    name: argo-server
