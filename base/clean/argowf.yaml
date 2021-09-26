@@ -27,7 +27,6 @@ spec:
             type: object
           spec:
             type: object
-            x-kubernetes-map-type: atomic
             x-kubernetes-preserve-unknown-fields: true
         required:
         - metadata
@@ -64,11 +63,9 @@ spec:
             type: object
           spec:
             type: object
-            x-kubernetes-map-type: atomic
             x-kubernetes-preserve-unknown-fields: true
           status:
             type: object
-            x-kubernetes-map-type: atomic
             x-kubernetes-preserve-unknown-fields: true
         required:
         - metadata
@@ -104,7 +101,6 @@ spec:
             type: object
           spec:
             type: object
-            x-kubernetes-map-type: atomic
             x-kubernetes-preserve-unknown-fields: true
         required:
         - metadata
@@ -150,11 +146,9 @@ spec:
             type: object
           spec:
             type: object
-            x-kubernetes-map-type: atomic
             x-kubernetes-preserve-unknown-fields: true
           status:
             type: object
-            x-kubernetes-map-type: atomic
             x-kubernetes-preserve-unknown-fields: true
         required:
         - metadata
@@ -163,46 +157,6 @@ spec:
     served: true
     storage: true
     subresources: {}
----
-apiVersion: apiextensions.k8s.io/v1
-kind: CustomResourceDefinition
-metadata:
-  name: workflowtasksets.argoproj.io
-spec:
-  group: argoproj.io
-  names:
-    kind: WorkflowTaskSet
-    listKind: WorkflowTaskSetList
-    plural: workflowtasksets
-    shortNames:
-    - wfts
-    singular: workflowtaskset
-  scope: Namespaced
-  versions:
-  - name: v1alpha1
-    schema:
-      openAPIV3Schema:
-        properties:
-          apiVersion:
-            type: string
-          kind:
-            type: string
-          metadata:
-            type: object
-          spec:
-            type: object
-            x-kubernetes-map-type: atomic
-            x-kubernetes-preserve-unknown-fields: true
-          status:
-            type: object
-            x-kubernetes-map-type: atomic
-            x-kubernetes-preserve-unknown-fields: true
-        required:
-        - metadata
-        - spec
-        type: object
-    served: true
-    storage: true
 ---
 apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
@@ -231,7 +185,6 @@ spec:
             type: object
           spec:
             type: object
-            x-kubernetes-map-type: atomic
             x-kubernetes-preserve-unknown-fields: true
         required:
         - metadata
@@ -302,8 +255,6 @@ rules:
   resources:
   - workflows
   - workflows/finalizers
-  - workflowtasksets
-  - workflowtasksets/finalizers
   verbs:
   - get
   - list
@@ -492,17 +443,6 @@ rules:
   verbs:
   - create
   - get
-- apiGroups:
-  - argoproj.io
-  resources:
-  - workflowtasksets
-  - workflowtasksets/finalizers
-  verbs:
-  - list
-  - watch
-  - get
-  - update
-  - patch
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
@@ -784,7 +724,7 @@ stringData:
   github.com: |
     type: github
     secret: "shh!"
-  gitlab.com: |-
+  gitlab.com: |
     type: gitlab
     secret: "shh!"
 ---
@@ -875,7 +815,7 @@ spec:
         - server
         - --auth-mode
         - client
-        image: quay.io/argoproj/argocli:latest
+        image: docker.io/argoproj/argocli:latest
         name: argo-server
         ports:
         - containerPort: 2746
@@ -1007,7 +947,7 @@ spec:
         - --configmap
         - workflow-controller-configmap
         - --executor-image
-        - quay.io/argoproj/argoexec:latest
+        - argoproj/argoexec:latest
         - --namespaced
         command:
         - workflow-controller
@@ -1017,7 +957,7 @@ spec:
             fieldRef:
               apiVersion: v1
               fieldPath: metadata.name
-        image: quay.io/argoproj/workflow-controller:latest
+        image: docker.io/argoproj/workflow-controller:latest
         livenessProbe:
           failureThreshold: 3
           httpGet:
