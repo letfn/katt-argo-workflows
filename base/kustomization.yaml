@@ -5,11 +5,15 @@ resources:
   - argowf.yaml
 
 patches:
-- path: patch-deployment-image-argocli.yaml
+- path: patch-deployment-argo-server.yaml
   target:
     kind: Deployment
     name: argo-server
-- path: patch-deployment-image-workflow-controller.yaml
+- path: patch-deployment-workflow-controller.yaml
   target:
     kind: Deployment
     name: workflow-controller
+- path: patch-configmap-workflow-controller-configmap.yaml
+  target:
+    kind: ConfigMap
+    name: workflow-controller-configmap
