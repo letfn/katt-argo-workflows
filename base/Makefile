@@ -1,11 +1,11 @@
-build: clean ../argowf.yaml
+build: clean ../argo-workflows.yaml
 
-../argowf.yaml: argowf.yaml
+../argo-workflows.yaml: argo-workflows.yaml
 	kustomize build >$@
 
-argowf.yaml: 
+argo-workflows.yaml: 
 	kustomize build clean >$@
 
 .PHONY: clean
 clean:
-	rm -f argowf.yaml
+	rm -f argo-workflows.yaml
