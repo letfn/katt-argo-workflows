@@ -821,7 +821,7 @@ spec:
         - server
         - --auth-mode
         - client
-        image: quay.io/argoproj/argocli:v3.1.12
+        image: docker.io/argoproj/argocli:v3.1.13
         name: argo-server
         ports:
         - containerPort: 2746
@@ -953,7 +953,7 @@ spec:
         - --configmap
         - workflow-controller-configmap
         - --executor-image
-        - argoproj/argoexec:latest
+        - argoproj/argoexec:v3.1.13
         - --namespaced
         command:
         - workflow-controller
@@ -963,7 +963,7 @@ spec:
             fieldRef:
               apiVersion: v1
               fieldPath: metadata.name
-        image: quay.io/argoproj/workflow-controller:v3.1.12
+        image: docker.io/argoproj/workflow-controller:v3.1.13
         livenessProbe:
           failureThreshold: 3
           httpGet:

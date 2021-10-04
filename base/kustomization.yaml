@@ -4,11 +4,13 @@ kind: Kustomization
 resources:
   - main.yaml
 
+images:
+  - name: docker.io/argoproj/workflow-controller
+    newTag: v3.1.13
+  - name: docker.io/argoproj/argocli
+    newTag: v3.1.13
+
 patches:
-- path: patch-deployment-argo-server.yaml
-  target:
-    kind: Deployment
-    name: argo-server
 - path: patch-deployment-workflow-controller.yaml
   target:
     kind: Deployment
