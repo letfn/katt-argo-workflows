@@ -5,10 +5,10 @@ resources:
   - main.yaml
 
 images:
-  - name: docker.io/argoproj/workflow-controller
-    newTag: v3.1.13
-  - name: docker.io/argoproj/argocli
-    newTag: v3.1.13
+  - name: quay.io/argoproj/workflow-controller
+    newTag: v3.2.0-rc5
+  - name: quay.io/argoproj/argocli
+    newTag: v3.2.0-rc5
 
 patches:
 - path: patch-deployment-workflow-controller.yaml
