@@ -1,4 +1,4 @@
 - op: replace
   path: /spec/template/spec/containers/0/args/3
   value:
-    argoproj/argoexec:v3.2.0-rc5
+    argoproj/argoexec:v3.2.0-rc6
