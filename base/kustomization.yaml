@@ -3,6 +3,7 @@ kind: Kustomization
 
 resources:
   - main.yaml
+  - namespace.yaml
 
 images:
   - name: quay.io/argoproj/workflow-controller
