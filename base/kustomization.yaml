@@ -7,17 +7,7 @@ bases:
 resources:
   - namespace.yaml
 
-images:
-  - name: quay.io/argoproj/workflow-controller
-    newTag: v3.2.3
-  - name: quay.io/argoproj/argocli
-    newTag: v3.2.3
-
 patches:
-- path: patch-deployment-workflow-controller.yaml
-  target:
-    kind: Deployment
-    name: workflow-controller
 - path: patch-configmap-workflow-controller-configmap.yaml
   target:
     kind: ConfigMap

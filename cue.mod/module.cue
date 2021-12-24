@@ -1,1 +1,1 @@
-module: "github.com/letfn/katt-argocd"
+module: "github.com/letfn/katt-argo-workflows"

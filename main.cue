@@ -4,8 +4,8 @@ import (
 	"github.com/defn/boot"
 )
 
-repo: boot.#Repo & {
+cfg: repo: boot.#Repo & {
 	repo_name:         "katt-argo-workflows"
-	version:           "3.2.4"
-	upstream_manifest: "https://raw.githubusercontent.com/argoproj/argo-workflows/v\(version)/manifests/quick-start-postgres.yaml"
+	version:           "3.2.6"
+	upstream_manifest: "https://github.com/argoproj/argo-workflows/releases/download/v\(version)/install.yaml"
 }

@@ -1,3 +1,4 @@
 - op: replace
-  path: /data/containerRuntimeExecutor
-  value: pns
+  path: /data
+  value:
+    containerRuntimeExecutor: pns

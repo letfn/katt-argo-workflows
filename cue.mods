@@ -1,7 +1,7 @@
-module github.com/letfn/katt-argocd
+module github.com/letfn/katt-argo-workflows
 
 cue v0.4.0
 
 require (
-  github.com/defn/boot v0.0.7
+	github.com/defn/boot v0.0.30
 )
